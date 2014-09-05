@@ -3,6 +3,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 compileJava {
+    source = '1.6'
     sourceCompatibility = '1.6'
 }
 
