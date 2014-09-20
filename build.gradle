@@ -2,10 +2,8 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 
-compileJava {
-    source = '1.6'
-    sourceCompatibility = '1.6'
-}
+sourceCompatibility = '1.6'
+targetCompatibility = '1.6'
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.0'
@@ -22,6 +20,12 @@ dependencies {
 }
 
 task initSourceFolders {
-   sourceSets*.java.srcDirs*.each { it.mkdirs() }
-   sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+    sourceSets*.java.srcDirs*.each { it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
+
+test {
+    testLogging {
+        exceptionFormat "full"
+    }
 }
